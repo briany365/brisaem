@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>브리의샘 · BRI'S SPRING</title>
+<meta name="description" content="경영학, 인문학, 신학 세 렌즈로 일터와 교회를 섬깁니다. 찬양, 말씀, 기독경영인 코칭, 기업컨설팅, 문서 사역.">
+<meta property="og:title" content="브리의샘 · BRI'S SPRING">
+<meta property="og:description" content="경영학, 인문학, 신학 세 렌즈로 일터와 교회를 섬깁니다.">
+<meta property="og:image" content="assets/logo-main.png">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+:root{
+  --deep:#131E4F;
+  --ink:#1B2547;
+  --body:#4A5578;
+  --blue:#2F62C4;
+  --sky:#7FA8E8;
+  --violet:#6E4E9E;
+  --coral:#EE9AA6;
+  --gold:#E9A94A;
+  --mist:#F4F7FD;
+  --line:#DDE5F3;
+  --myeongjo:"Nanum Myeongjo","Apple SD Gothic Neo",serif;
+  --sans:"Pretendard Variable",Pretendard,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --dawn:linear-gradient(90deg,#2F62C4 0%,#6E4E9E 42%,#EE9AA6 74%,#E9A94A 100%);
+  --pad:clamp(20px,5vw,64px);
+  --r:20px;
+  --shadow:0 18px 50px -24px rgba(19,30,79,.35);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{
+  margin:0;background:#fff;color:var(--ink);
+  font-family:var(--sans);font-size:17px;line-height:1.78;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;word-break:keep-all;
+}
+img{max-width:100%;display:block}
+a{color:var(--blue)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--myeongjo);margin:0;letter-spacing:-.01em;font-weight:700;text-wrap:balance}
+p,li,.role,.line span{text-wrap:pretty}
+.nowrap{white-space:nowrap}
+.wrap{max-width:1160px;margin:0 auto;padding:0 var(--pad)}
+
+/* 헤더 */
+.top{position:fixed;inset:0 0 auto;z-index:50;transition:background .35s,box-shadow .35s,padding .35s;padding:16px 0}
+.top.solid{background:rgba(255,255,255,.88);backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(19,30,79,.08);padding:9px 0}
+.top .wrap{display:flex;align-items:center;gap:18px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--deep);flex:none}
+.brand img{width:34px;height:auto;transition:width .35s}
+.top.solid .brand img{width:29px}
+.brand .nm{font-family:var(--myeongjo);font-size:19px;font-weight:800;line-height:1.1;display:block}
+.brand .en{display:block;font-family:"Cormorant Garamond",serif;font-size:10.5px;letter-spacing:.22em;color:var(--violet);margin-top:1px}
+.gnb{margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.gnb::-webkit-scrollbar{display:none}
+.gnb ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;white-space:nowrap}
+.gnb a{color:var(--body);text-decoration:none;font-size:15px;font-weight:500;position:relative;padding:6px 0;display:inline-block}
+.gnb a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;background:var(--dawn);transition:right .3s;border-radius:2px}
+.gnb a:hover::after{right:0}
+@media(max-width:900px){.gnb{margin-left:12px}.gnb ul{gap:16px}.gnb a{font-size:14px}.brand .en{display:none}}
+
+/* 히어로 */
+.hero{position:relative;padding:150px 0 0;text-align:center;overflow:hidden;
+  background:radial-gradient(90% 62% at 50% 6%,#FFF6E9 0%,#FDEFF3 32%,#F2F5FE 62%,#fff 100%)}
+.sunglow{position:absolute;left:50%;top:-160px;width:min(1100px,150vw);aspect-ratio:1;transform:translateX(-50%);
+  background:radial-gradient(closest-side,rgba(255,200,120,.5),rgba(238,154,166,.26) 45%,rgba(255,255,255,0) 72%);
+  animation:breathe 9s ease-in-out infinite;pointer-events:none}
+@keyframes breathe{0%,100%{opacity:.85;transform:translateX(-50%) scale(1)}50%{opacity:1;transform:translateX(-50%) scale(1.06)}}
+.hero .wrap{position:relative;z-index:2}
+.hero-logo{width:min(560px,86%);margin:0 auto}
+.hero h1{font-size:clamp(24px,3.1vw,36px);line-height:1.62;font-weight:700;max-width:17em;margin:28px auto 0;color:var(--deep)}
+.hero h1 .hl{
+  font-weight:800;color:#3B3480;white-space:nowrap;
+  background-image:linear-gradient(90deg,rgba(233,169,74,.42),rgba(238,154,166,.42) 55%,rgba(110,78,158,.32));
+  background-repeat:no-repeat;background-size:100% .34em;background-position:0 88%;
+  padding:0 .06em;
+}
+.hero .lede{max-width:30em;margin:22px auto 0;color:var(--body);font-size:16.5px;line-height:1.8}
+.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:999px;text-decoration:none;font-weight:600;font-size:15.5px;transition:transform .25s,box-shadow .25s,border-color .25s}
+.btn-fill{background:linear-gradient(105deg,#2F62C4,#6E4E9E 55%,#EE9AA6);color:#fff;box-shadow:0 14px 30px -14px rgba(47,98,196,.75)}
+.btn-fill:hover{transform:translateY(-2px);box-shadow:0 20px 36px -14px rgba(110,78,158,.7)}
+.btn-line{border:1px solid var(--line);color:var(--deep);background:rgba(255,255,255,.7)}
+.btn-line:hover{border-color:var(--sky);transform:translateY(-2px)}
+.sea{position:relative;height:clamp(120px,17vw,190px);margin-top:46px;
+  background:linear-gradient(180deg,rgba(255,255,255,0),rgba(234,240,251,.9) 40%,#EAF0FB 100%)}
+.sea::before{content:"";position:absolute;inset:0;
+  background:repeating-linear-gradient(180deg,rgba(47,98,196,.15) 0 2px,rgba(255,255,255,0) 2px 13px);
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 45%,#000);mask-image:linear-gradient(180deg,transparent,#000 45%,#000)}
+.sea::after{content:"";position:absolute;left:50%;top:0;width:min(420px,60vw);height:100%;transform:translateX(-50%);
+  background:linear-gradient(180deg,rgba(255,214,150,.8),rgba(238,154,166,.32) 55%,rgba(255,255,255,0));filter:blur(10px)}
+.rise{opacity:0;transform:translateY(16px);animation:rise .95s cubic-bezier(.2,.7,.3,1) forwards}
+.d1{animation-delay:.05s}.d2{animation-delay:.3s}.d3{animation-delay:.5s}.d4{animation-delay:.68s}
+@keyframes rise{to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.rise{opacity:1;transform:none}}
+
+/* 성구 띠 */
+.verse-band{background:linear-gradient(105deg,#152459,#3A3F86 40%,#7A5A9E 72%,#C98BA0);color:#fff;position:relative;overflow:hidden}
+.verse-band::after{content:"";position:absolute;right:-8%;bottom:-70%;width:60%;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(closest-side,rgba(255,214,150,.5),rgba(255,255,255,0) 70%)}
+.verse-band .wrap{padding:clamp(52px,7vw,84px) var(--pad);position:relative;z-index:2;text-align:center}
+.verse-band p{font-family:var(--myeongjo);font-size:clamp(18px,2.4vw,26px);line-height:1.75;margin:0 auto;max-width:24em}
+.verse-band cite{display:block;font-style:normal;font-family:"Cormorant Garamond",serif;letter-spacing:.16em;font-size:13px;margin-top:20px;color:#FFD9A0}
+
+/* 섹션 공통 */
+section{padding:clamp(72px,9vw,120px) 0}
+.hero{padding-top:150px}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:"Cormorant Garamond",serif;font-size:14px;letter-spacing:.2em;color:var(--violet);margin-bottom:14px}
+.eyebrow::before{content:"";width:26px;height:2px;border-radius:2px;background:var(--dawn)}
+.s-head{max-width:46em;margin-bottom:clamp(38px,5vw,58px)}
+.s-head h2{font-size:clamp(26px,3.6vw,38px);line-height:1.4;color:var(--deep)}
+.s-head p{color:var(--body);margin:14px 0 0;font-size:16.5px;max-width:34em}
+
+/* 걸어온 길 */
+.way{background:linear-gradient(180deg,#fff,#FAFBFE)}
+.tl{position:relative;padding-left:56px;max-width:44em}
+.tl::before{content:"";position:absolute;left:15px;top:8px;bottom:8px;width:2px;border-radius:2px;
+  background:linear-gradient(180deg,#E9A94A,#EE9AA6 28%,#6E4E9E 62%,#2F62C4)}
+.ch{position:relative;padding-bottom:46px}
+.ch:last-child{padding-bottom:0}
+.ch::before{content:"";position:absolute;left:-49px;top:9px;width:16px;height:16px;border-radius:50%;
+  background:#fff;border:2px solid var(--violet);box-shadow:0 0 0 5px #fff,0 0 0 8px rgba(110,78,158,.12)}
+.ch h3{font-size:20px;color:var(--deep);margin-bottom:12px}
+.ch p{font-family:var(--myeongjo);font-size:18px;line-height:2;color:#1F2A4A;margin:0 0 16px;max-width:33em}
+.pull{margin:34px 0;padding:26px 28px;border-radius:var(--r);background:linear-gradient(140deg,#F6F1FB,#FDF1F2 60%,#FEF7EC);
+  font-family:var(--myeongjo);font-size:19px;line-height:1.8;color:var(--deep)}
+.pull span{display:block;font-family:var(--sans);font-size:14.5px;color:var(--body);margin-top:12px}
+@media(max-width:640px){.tl{padding-left:40px}.tl::before{left:7px}.ch::before{left:-41px}}
+
+/* 사역 */
+.min-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:22px}
+.card{grid-column:span 2;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:32px 28px;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .3s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:transparent}
+.card::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:var(--dawn);opacity:.85}
+.card .ic{width:46px;height:46px;margin-bottom:18px}
+.card h3{font-size:20px;color:var(--deep);margin-bottom:6px}
+.card .role{font-size:13px;color:var(--violet);font-weight:600}
+.card p{color:var(--body);font-size:16px;margin:14px 0 0;position:relative;z-index:2}
+.card ul{margin:16px 0 0;padding-left:0;list-style:none;position:relative;z-index:2}
+.card li{position:relative;padding-left:16px;font-size:15.5px;color:var(--body);margin-bottom:6px}
+.card li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:50%;background:linear-gradient(120deg,var(--sky),var(--coral))}
+.card.lead{grid-column:span 3;background:linear-gradient(140deg,#F7F9FE,#FDF3F5)}
+.card.wide{grid-column:span 3}
+.emblem-wm{position:absolute;right:-26px;bottom:-26px;width:180px;opacity:.15;pointer-events:none;z-index:1}
+@media(max-width:980px){.min-grid{grid-template-columns:repeat(2,1fr)}.card{grid-column:span 1}.card.lead{grid-column:span 1}.card.wide{grid-column:span 1}}
+@media(max-width:640px){.min-grid{grid-template-columns:1fr}}
+
+/* 관심분야 */
+.fields{background:linear-gradient(180deg,#F4F7FD,#fff)}
+.f-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:34px}
+.f-grid > div{padding-top:22px;border-top:2px solid;border-image:var(--dawn) 1}
+.f-grid h3{font-size:18.5px;color:var(--deep);margin-bottom:10px}
+.f-grid p{margin:0;color:var(--body);font-size:16px}
+
+/* 비전 */
+.vision{position:relative;overflow:hidden;color:#fff;
+  background:linear-gradient(170deg,#0D1638 0%,#1B2559 42%,#3D2F6B 78%,#5B3E7E 100%)}
+.vision::before{content:"";position:absolute;left:50%;bottom:-46%;width:min(900px,130vw);aspect-ratio:1;transform:translateX(-50%);
+  background:radial-gradient(closest-side,rgba(255,201,130,.45),rgba(238,154,166,.2) 48%,rgba(255,255,255,0) 72%)}
+.vision::after{content:"";position:absolute;inset:auto 0 0;height:44%;
+  background:repeating-linear-gradient(180deg,rgba(255,255,255,.08) 0 1px,transparent 1px 12px)}
+.vision .wrap{position:relative;z-index:2}
+.vision h2{color:#fff}
+.vision .eyebrow{color:#FFD9A0}
+.vision .s-head p{color:#C3CCEA}
+.vlist{list-style:none;margin:0;padding:0}
+.vlist li{position:relative;padding:30px 0 30px 74px;border-top:1px solid rgba(255,255,255,.16);max-width:44em;color:#E4E9F8;font-size:17px}
+.vlist li:last-child{border-bottom:1px solid rgba(255,255,255,.16)}
+.vlist li i{position:absolute;left:0;top:26px;font-style:normal;font-family:"Cormorant Garamond",serif;font-size:34px;line-height:1;
+  background:linear-gradient(120deg,#FFD9A0,#EE9AA6);-webkit-background-clip:text;background-clip:text;color:transparent}
+.vision .close{margin:46px 0 0;font-family:var(--myeongjo);font-size:clamp(20px,2.7vw,30px);line-height:1.7;max-width:20em;color:#fff}
+@media(max-width:640px){.vlist li{padding-left:56px}}
+
+/* 이력과 저술 */
+.rec-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(34px,5vw,64px)}
+@media(max-width:900px){.rec-grid{grid-template-columns:1fr}}
+.blk{margin-bottom:38px}
+.blk:last-child{margin-bottom:0}
+.blk h3{font-size:15px;font-family:var(--sans);font-weight:700;letter-spacing:.04em;color:var(--violet);
+  padding-bottom:10px;margin-bottom:6px;border-bottom:2px solid;border-image:var(--dawn) 1}
+.line{display:flex;justify-content:space-between;gap:18px;padding:14px 0;border-bottom:1px solid var(--line)}
+.line b{font-weight:600;font-size:16.5px;color:var(--ink)}
+.line span{color:var(--body);font-size:15px;text-align:right;max-width:58%}
+.works{list-style:none;margin:0;padding:0}
+.works li{padding:15px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.works li em{font-style:normal;color:var(--violet);font-size:14px;flex:none}
+.works li strong{font-weight:600;font-size:16.5px}
+.books{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+.books li{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:14px;background:linear-gradient(120deg,#F7F9FE,#FDF3F5)}
+.books .n{font-family:var(--myeongjo);font-size:17px;font-weight:700;color:var(--deep)}
+.books .p{margin-left:auto;font-family:"Cormorant Garamond",serif;letter-spacing:.14em;font-size:12px;color:var(--violet)}
+
+/* 소통 */
+.contact{background:linear-gradient(180deg,#fff,#F4F7FD)}
+.c-panel{border-radius:26px;padding:clamp(36px,5vw,58px);color:#fff;position:relative;overflow:hidden;
+  background:linear-gradient(115deg,#17245A,#3B3A80 45%,#7A5A9E 78%,#C98BA0)}
+.c-panel::after{content:"";position:absolute;left:-10%;bottom:-90%;width:55%;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(closest-side,rgba(255,214,150,.45),rgba(255,255,255,0) 70%)}
+.c-panel h2{color:#fff;font-size:clamp(24px,3.2vw,34px);position:relative;z-index:2}
+.c-panel .eyebrow{color:#FFD9A0}
+.c-panel .intro{color:#CBD4F0;margin:14px 0 0;max-width:32em;position:relative;z-index:2}
+.c-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:36px;position:relative;z-index:2}
+.c-grid a{display:block;text-decoration:none;color:#fff;padding:22px;border-radius:16px;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);transition:background .25s,transform .25s}
+.c-grid a:hover{background:rgba(255,255,255,.19);transform:translateY(-3px)}
+.c-grid b{display:block;font-size:12.5px;font-weight:500;letter-spacing:.16em;color:#FFD9A0;margin-bottom:9px;font-family:"Cormorant Garamond",serif}
+.c-grid strong{font-family:var(--myeongjo);font-size:19px;font-weight:700;word-break:break-all}
+.c-note{margin:26px 0 0;font-size:15px;color:#C3CCEA;position:relative;z-index:2;max-width:34em}
+
+/* 푸터 */
+footer{background:#0F1837;color:#8E9BC4;font-size:14.5px}
+footer .wrap{padding:44px var(--pad);display:flex;flex-wrap:wrap;gap:20px 32px;align-items:center}
+footer img{width:44px}
+.fnm{font-family:var(--myeongjo);color:#fff;font-size:17px;font-weight:700}
+footer a{color:#8E9BC4;text-decoration:none}
+footer a:hover{color:#FFD9A0}
+.sp{margin-left:auto;display:flex;gap:22px;flex-wrap:wrap}
+
+/* ── 사진 요소 ─────────────────────── */
+/* 히어로 하단 흐르는 사진 띠 */
+.strip{position:relative;margin-top:44px;padding:28px 0 34px;overflow:hidden;
+  background:linear-gradient(180deg,rgba(255,255,255,0),rgba(234,240,251,.85) 30%,#EAF0FB)}
+.strip::before{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;
+  background:linear-gradient(90deg,#F7F9FE 0,rgba(247,249,254,0) 12%,rgba(247,249,254,0) 88%,#F7F9FE 100%)}
+.track{display:flex;gap:16px;width:max-content;animation:slide 46s linear infinite}
+.strip:hover .track{animation-play-state:paused}
+.track img{height:clamp(130px,17vw,208px);width:auto;border-radius:14px;object-fit:cover;
+  box-shadow:0 12px 28px -18px rgba(19,30,79,.55)}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.track{animation:none;overflow-x:auto}}
+
+/* 성구 띠 사진 배경 */
+.verse-band{background:#101B45}
+.verse-bg{position:absolute;inset:0;z-index:0}
+.verse-bg img{width:100%;height:100%;object-fit:cover;object-position:center 32%;opacity:.5}
+.verse-bg::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(105deg,rgba(21,36,89,.92),rgba(58,63,134,.78) 40%,rgba(122,90,158,.66) 72%,rgba(201,139,160,.55))}
+
+/* 걸어온 길 인물 사진 */
+.way-grid{display:grid;grid-template-columns:1fr 300px;gap:clamp(30px,5vw,64px);align-items:start}
+.portrait{position:sticky;top:92px}
+.portrait img{width:100%;border-radius:18px;box-shadow:var(--shadow)}
+.portrait figcaption{margin-top:14px;font-size:14.5px;color:var(--body);line-height:1.7}
+.portrait .sig{display:block;font-family:var(--myeongjo);font-size:17px;color:var(--deep);font-weight:700;margin-bottom:4px}
+.inline-photo{margin:30px 0;border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+.inline-photo img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.inline-photo figcaption{padding:12px 16px;font-size:14px;color:var(--body);background:#fff}
+@media(max-width:900px){
+  .way-grid{grid-template-columns:1fr}
+  .portrait{position:static;max-width:340px;margin:0 auto 34px}
+}
+
+/* 사역 카드 사진 */
+.card{padding:0}
+.card .inner{padding:28px 28px 32px}
+.card .media{position:relative;overflow:hidden;border-radius:calc(var(--r) - 1px) calc(var(--r) - 1px) 0 0}
+.card .media img{width:100%;aspect-ratio:16/10;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.3,1)}
+.card:hover .media img{transform:scale(1.04)}
+.card .media::after{content:"";position:absolute;inset:auto 0 0;height:52%;
+  background:linear-gradient(180deg,rgba(16,27,69,0),rgba(16,27,69,.28))}
+.card.lead .media img{aspect-ratio:16/9}
+.card .ic{margin-bottom:14px}
+
+/* 현장 갤러리 */
+.gallery{background:linear-gradient(180deg,#fff,#F7F9FE)}
+.g-cols{columns:3;column-gap:16px}
+.g-cols figure{break-inside:avoid;margin:0 0 16px;border-radius:16px;overflow:hidden;position:relative;
+  box-shadow:0 14px 34px -24px rgba(19,30,79,.5);cursor:zoom-in;background:#E8EDF8}
+.g-cols img{width:100%;display:block;transition:transform .6s cubic-bezier(.2,.7,.3,1)}
+.g-cols figure:hover img{transform:scale(1.045)}
+.g-cols figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 16px 13px;color:#fff;font-size:13.5px;
+  background:linear-gradient(180deg,rgba(16,27,69,0),rgba(16,27,69,.72));opacity:0;transition:opacity .3s}
+.g-cols figure:hover figcaption,.g-cols figure:focus-within figcaption{opacity:1}
+@media(max-width:900px){.g-cols{columns:2}}
+@media(max-width:560px){.g-cols{columns:1}.g-cols figcaption{opacity:1}}
+
+/* 라이트박스 */
+.lb{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:24px;
+  background:rgba(10,17,46,.92);backdrop-filter:blur(6px)}
+.lb.on{display:flex}
+.lb img{max-width:min(1100px,94vw);max-height:88vh;border-radius:12px;box-shadow:0 30px 80px -30px rgba(0,0,0,.8)}
+.lb button{position:absolute;top:18px;right:18px;width:44px;height:44px;border-radius:50%;cursor:pointer;
+  background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);color:#fff;font-size:22px;line-height:1}
+.lb button:hover{background:rgba(255,255,255,.24)}
+
+/* ── 언어 전환 ─────────────────────── */
+.t-en{display:none}
+html[lang="en"] .t-ko{display:none}
+html[lang="en"] .t-en{display:inline}
+html[lang="en"] h1,html[lang="en"] h2,html[lang="en"] h3,
+html[lang="en"] .pull,html[lang="en"] .verse-band p,
+html[lang="en"] .vision .close,html[lang="en"] .books .n,
+html[lang="en"] .c-grid strong{font-family:"Cormorant Garamond","Nanum Myeongjo",serif}
+html[lang="en"] .ch p{font-family:"Cormorant Garamond",serif;font-size:20px;line-height:1.85}
+html[lang="en"] .hero h1{font-size:clamp(26px,3.4vw,40px);line-height:1.4;max-width:16em}
+html[lang="en"] .verse-band p{font-size:clamp(19px,2.5vw,27px)}
+html[lang="en"] body,html[lang="en"] p,html[lang="en"] li{word-break:normal}
+html[lang="en"] .brand .nm{display:none}
+html[lang="en"] .brand .en{display:block;font-family:"Cormorant Garamond",serif;font-size:19px;font-weight:600;
+  letter-spacing:.13em;color:var(--deep);margin-top:0}
+.langtog{display:flex;flex:none;margin-left:16px;border:1px solid var(--line);border-radius:999px;
+  overflow:hidden;background:rgba(255,255,255,.7)}
+.langtog button{border:0;background:transparent;cursor:pointer;font:inherit;font-size:12.5px;font-weight:700;
+  letter-spacing:.04em;color:var(--body);padding:6px 13px;transition:background .25s,color .25s}
+.langtog button[aria-pressed="true"]{background:linear-gradient(105deg,#2F62C4,#6E4E9E);color:#fff}
+@media(max-width:640px){.langtog{margin-left:10px}.langtog button{padding:5px 10px;font-size:12px}}
+
+/* 태블릿 */
+@media(max-width:900px){
+  .hero{padding-top:120px}
+  .hero-logo{width:min(460px,88%)}
+  .sea{margin-top:38px}
+  .verse-band p{max-width:20em}
+  .line span{max-width:52%}
+}
+
+/* 모바일 */
+@media(max-width:640px){
+  body{font-size:16.5px}
+  .top{padding:12px 0}
+  .top.solid{padding:8px 0}
+  .brand img{width:30px}
+  .top.solid .brand img{width:26px}
+  .brand .nm{font-size:17px}
+  .hero{padding-top:104px}
+  .hero-logo{width:92%}
+  .hero h1{font-size:22.5px;line-height:1.66;margin-top:22px;max-width:15em}
+  .hero .lede{font-size:15.5px;margin-top:16px}
+  .cta{margin-top:28px;gap:10px}
+  .btn{padding:13px 22px;font-size:15px;flex:1 1 100%;justify-content:center}
+  .sea{height:96px;margin-top:32px}
+  .verse-band p{font-size:18px;line-height:1.8}
+  .s-head{margin-bottom:32px}
+  .ch p{font-size:17px;line-height:1.9}
+  .pull{padding:22px 20px;font-size:17.5px}
+  .card{padding:26px 22px}
+  .emblem-wm{width:130px;right:-20px;bottom:-20px}
+  .f-grid{gap:26px}
+  .vlist li{padding:24px 0 24px 50px;font-size:16.5px}
+  .vlist li i{font-size:28px;top:23px}
+  .vision .close{font-size:20px;margin-top:36px}
+  /* 이력 행: 좌우 배치 대신 세로 배치 */
+  .line{flex-direction:column;gap:3px;padding:13px 0}
+  .line span{text-align:left;max-width:100%;font-size:14.5px}
+  .works li{flex-direction:column;gap:4px}
+  .works li strong{font-size:16px}
+  .books li{padding:14px 16px}
+  .c-panel{border-radius:20px}
+  .c-grid{gap:10px}
+  footer .wrap{padding:36px var(--pad)}
+  .sp{margin-left:0;width:100%;gap:14px 20px}
+}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="#hero">
+      <img src="assets/emblem-sm.png" alt="">
+      <span>
+        <span class="nm">브리의샘</span>
+        <span class="en">BRI'S SPRING</span>
+      </span>
+    </a>
+    <nav class="gnb" aria-label="주요 메뉴">
+      <ul>
+        <li><a href="#way"><span class="t-ko">걸어온 길</span><span class="t-en">Story</span></a></li>
+        <li><a href="#ministry"><span class="t-ko">사역</span><span class="t-en">Ministry</span></a></li>
+        <li><a href="#scene"><span class="t-ko">현장</span><span class="t-en">Scene</span></a></li>
+        <li><a href="#field"><span class="t-ko">관심분야</span><span class="t-en">Focus</span></a></li>
+        <li><a href="#vision"><span class="t-ko">비전</span><span class="t-en">Vision</span></a></li>
+        <li><a href="#record"><span class="t-ko">이력과 저술</span><span class="t-en">Record</span></a></li>
+        <li><a href="#contact"><span class="t-ko">소통</span><span class="t-en">Contact</span></a></li>
+      </ul>
+    </nav>
+    <div class="langtog" role="group" aria-label="언어 선택 / Language">
+      <button type="button" data-lang="ko" aria-pressed="true">KO</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="hero">
+  <div class="sunglow" aria-hidden="true"></div>
+  <div class="wrap">
+    <img class="hero-logo rise d1" src="assets/logo-main.png" alt="브리의샘 BRI'S SPRING">
+    <h1 class="rise d2"><span class="t-ko">받은 은혜가 고이지 않고 흐르기를 원합니다. 남은 길을 <span class="hl">산 제사</span>로 드립니다.</span><span class="t-en">May the grace I received never pool, but flow onward. The road ahead I offer as a <span class="hl">living sacrifice</span>.</span></h1>
+    <p class="lede rise d3"><span class="t-ko">경영학, 인문학, 신학 세 렌즈로 일터와 교회를 섬깁니다. 찬양과 말씀, 코칭과 컨설팅, 그리고 저술의 자리에서.</span><span class="t-en">Serving the workplace and the church through three lenses: business, the humanities, and theology. In worship and the Word, in coaching and consulting, and in writing.</span></p>
+    <div class="cta rise d4">
+      <a class="btn btn-fill" href="#contact"><span class="t-ko">초청 문의하기</span><span class="t-en">Invite me</span></a>
+      <a class="btn btn-line" href="https://www.youtube.com/@%EB%B8%8C%EB%A6%AC%EC%9D%98%EC%83%98" target="_blank" rel="noopener"><span class="t-ko">유튜브 채널 보기</span><span class="t-en">Watch on YouTube</span></a>
+    </div>
+  </div>
+  <div class="strip" aria-label="사역 현장 사진">
+    <div class="track">
+      <img src="assets/photos/band-hall.jpg" alt="집회 찬양 인도" loading="lazy">
+      <img src="assets/photos/worship-lead.jpg" alt="무대에서 기타를 치며 찬양" loading="lazy">
+      <img src="assets/photos/hands-1.jpg" alt="손을 든 회중" loading="lazy">
+      <img src="assets/photos/band-trio.jpg" alt="광야밴드 찬양" loading="lazy">
+      <img src="assets/photos/stage-wide.jpg" alt="대회 무대 전경" loading="lazy">
+      <img src="assets/photos/studio-vocal.jpg" alt="녹음실 보컬 녹음" loading="lazy">
+      <img src="assets/photos/audience-band.jpg" alt="찬양하는 회중" loading="lazy">
+      <img src="assets/photos/band-quartet.jpg" alt="기독경영인 모임 찬양" loading="lazy">
+      <img src="assets/photos/band-hall.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="assets/photos/worship-lead.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="assets/photos/hands-1.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="assets/photos/band-trio.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="assets/photos/stage-wide.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="assets/photos/studio-vocal.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="assets/photos/audience-band.jpg" alt="" aria-hidden="true" loading="lazy">
+      <img src="assets/photos/band-quartet.jpg" alt="" aria-hidden="true" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<div class="verse-band">
+  <div class="verse-bg" aria-hidden="true"><img src="assets/photos/worship-hands.jpg" alt="" loading="lazy"></div>
+  <div class="wrap">
+    <p><span class="t-ko">내가 주는 물을 마시는 자는 영원히 목마르지 아니하리니, 내가 주는 물은 그 속에서 영생하도록 솟아나는 샘물이 되리라.</span><span class="t-en">Whosoever drinketh of the water that I shall give him shall never thirst; but the water that I shall give him shall be in him a well of water springing up into everlasting life.</span></p>
+    <cite>JOHN 4 : 14</cite>
+  </div>
+</div>
+
+<section class="way" id="way">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="eyebrow">THE WAY</span>
+      <h2><span class="t-ko">걸어온 길</span><span class="t-en">The Path I Have Walked</span></h2>
+      <p><span class="t-ko">자랑할 것이 없는 인생입니다. 다만 인도하신 흔적을 그대로 적습니다.</span><span class="t-en">There is nothing here to boast of. I simply set down the traces of His leading.</span></p>
+    </div>
+
+    <div class="way-grid">
+    <div class="tl">
+      <div class="ch">
+        <h3><span class="t-ko">열아홉, 그 부르심</span><span class="t-en">Nineteen, and a Calling</span></h3>
+        <p><span class="t-ko">불교 집안에서 태어나서 교회 문턱을 넘어 보지 못했습니다. 크신 하나님의 은혜로 19세 때 친구의 전도로 교회 수련회에 초청을 받았고 하나님을 만나게 되었습니다. 마치 바로처럼 부모님의 마음이 격동케 되어 약 10년간의 핍박의 시련도 있었습니다. 당시 평생 흘릴 눈물을 모두 흘린 것 같습니다.</span><span class="t-en">I was born into a Buddhist family and had never once crossed the threshold of a church. By God's great grace, at the age of nineteen a friend invited me to a church retreat, and there I met God. Like Pharaoh, my parents' hearts were stirred against it, and there followed some ten years of persecution. I think I shed in those years all the tears a lifetime holds.</span></p>
+        <p><span class="t-ko">집안 구원을 위해 기도하면서, 가정에 복음이 들어간다면 하나님께 드리는 인생을 살겠다고 서원하기도 했습니다.</span><span class="t-en">Praying for the salvation of my family, I made a vow: if the gospel ever entered our home, I would live my life as an offering to God.</span></p>
+      </div>
+
+      <div class="ch">
+        <h3><span class="t-ko">가정에 임한 구원</span><span class="t-en">Salvation Comes Home</span></h3>
+        <p><span class="t-ko">어머니의 사업 실패, 건강 악화 등의 계기로 마음이 가난해지셨고, 교회도 나오시고 큰 치유의 은혜도 입게 되셨습니다. 권사님, 장로님이 되셔서 과거 큰 핍박자에서 든든한 기도의 후원자가 되셨습니다. 부모님의 구원의 감격으로, 하나님이 살아 계시고 기도에 응답하신다는 명확한 증거를 주셨습니다.</span><span class="t-en">Through my mother’s business failure and failing health, her heart grew poor. She began to come to church and received the grace of deep healing. My parents, once the fiercest opponents, took their place among the leaders of the church and became steadfast supporters in prayer. Their salvation was clear evidence to me that God is alive and answers prayer.</span></p>
+      </div>
+
+      <div class="ch">
+        <h3><span class="t-ko">사람 막대기와 인생 채찍</span><span class="t-en">The Rod of Men, the Stripes of Life</span></h3>
+        <p><span class="t-ko">적지 않은 핍박의 시기, 다섯 번의 질병, 두 번의 사고 등으로 마음이 강퍅하고 교만한 인생을 겸손히 낮추셨습니다. 직장 생활, 사업의 자리, 인생의 여정 속에서 사람 막대기와 인생 채찍을 경험케 하셨습니다. 어떻게 세상 한복판에서 어떤 삶을 살아야 하는지, 깊은 성찰의 시기이기도 했습니다.</span><span class="t-en">A long season of persecution, five illnesses, two accidents. Through them He humbled a hard and proud life. In my working years, in business, along the road of life, He let me know the rod of men and the stripes of life. It was also a season of deep reflection on how one is to live in the middle of the world.</span></p>
+      </div>
+
+      <div class="ch">
+        <h3><span class="t-ko">맡겨 주신 섬김의 자리</span><span class="t-en">The Places of Service Entrusted to Me</span></h3>
+        <p><span class="t-ko">신앙 초기 다녔던 교회가 개척교회이다 보니, 다양한 사역들을 맡게 되는 은혜가 있었습니다. 찬양밴드, 성경 양육 및 제자훈련, 비정기적이지만 수요 강단에서 말씀을 섬기기도 했습니다. 이후 교회에서는 셀그룹 리더의 섬김을 오랫동안 하면서, 사역을 맡은 청지기의 삶과 하나님의 동역자로서 한 영혼이 돌아오는 천국 잔치의 감격을 누리는 시간이었습니다.</span><span class="t-en">Because the church of my early faith was a church plant, I was given the grace of many kinds of service: the worship band, Bible study and discipleship, and now and then the Wednesday pulpit. In the churches that followed I served long as a cell group leader, living as a steward entrusted with ministry and sharing the joy of heaven’s feast whenever one soul came home.</span></p>
+        <div class="pull">
+          <span class="t-ko">우는 자와 함께 울라. 내 백성을 위로하라.</span><span class="t-en">Weep with those who weep. Comfort my people.</span>
+          <span><span class="t-ko">그 음성에 순종하여, 부르심이 있는 전국의 자리를 찾아다니며 섬기고 있습니다.</span><span class="t-en">In obedience to that voice, I go wherever the calling leads, across the country.</span></span>
+        </div>
+        <figure class="inline-photo">
+          <img src="assets/photos/hands-2.jpg" alt="찬양 중 손을 든 회중" loading="lazy">
+          <figcaption><span class="t-ko">부르심이 있는 자리마다 찾아가 함께 찬양합니다.</span><span class="t-en">Wherever the calling leads, we lift our voices together.</span></figcaption>
+        </figure>
+        <p><span class="t-ko">이후 장로님의 콜링이 있었고, 기도하던 중에 인도하심을 좇아 옮기게 되었고 찬양밴드로 섬기고 있습니다. 거부할 수 없는 이끄심으로 목회학 석사의 길을 걸었고, 여러 일들과 섬김의 짐 속에 허덕이긴 하지만 이후 하반기 사역을 위해 준비케 하시는 뜻에 순종함으로 임하고 있습니다. 최근에는 지역 경영인들을 구체적으로 섬기는 지회 섬김이로도 부르심을 받고 섬기고 있습니다.</span><span class="t-en">Later came an elder’s calling, and while praying I followed His leading and moved, and there I serve with the worship band. Under a leading I could not refuse, I walked the road of the Master of Divinity. Though I stagger under the weight of many tasks and callings, I go on in obedience, trusting that He is preparing me for the second half of the work. More recently I have been called to serve as a chapter servant leader among business leaders in my region.</span></p>
+        <p><span class="t-ko">부족한 인생을 돌아보시고 지금까지 인도해 주신 하나님의 크신 은혜와 돌보심에 감사와 영광을 돌려 드립니다.</span><span class="t-en">To God, who looked upon a small life and has led me until now, I return all thanks and glory for His great grace and His care.</span></p>
+      </div>
+    </div>
+
+    <figure class="portrait">
+      <img src="assets/photos/portrait-face.jpg" alt="정병현" loading="lazy">
+      <figcaption>
+        <span class="sig"><span class="t-ko">정병현</span><span class="t-en">Brian Chong</span></span>
+        <span class="t-ko">경영학, 인문학, 신학 세 렌즈로 일터와 교회를 섬깁니다. 광야밴드를 인도하며 부르심이 있는 자리를 찾아다닙니다.</span><span class="t-en">Serving the workplace and the church through three lenses: business, the humanities, and theology. He leads the Gwangya Band and goes wherever the calling leads.</span>
+      </figcaption>
+    </figure>
+    </div>
+  </div>
+</section>
+
+<section id="ministry">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="eyebrow">MINISTRY</span>
+      <h2><span class="t-ko">다섯 갈래, 한 부르심</span><span class="t-en">Five Streams, One Calling</span></h2>
+      <p><span class="t-ko">경영학, 인문학, 신학이라는 세 렌즈로 일터와 교회를 섬깁니다.</span><span class="t-en">Serving the workplace and the church through three lenses: business, the humanities, and theology.</span></p>
+    </div>
+
+    <div class="min-grid">
+      <article class="card lead">
+        <div class="media"><img src="assets/photos/worship-lead.jpg" alt="광야밴드를 인도하며 찬양" loading="lazy" style="object-position:center 40%"></div>
+        <div class="inner">
+        <svg class="ic" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+          <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2F62C4"/><stop offset=".6" stop-color="#6E4E9E"/><stop offset="1" stop-color="#EE9AA6"/></linearGradient></defs>
+          <path d="M17 30V11l16-3v19" stroke="url(#g1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="13" cy="30" r="4.5" stroke="url(#g1)" stroke-width="2"/>
+          <circle cx="29" cy="27" r="4.5" stroke="url(#g1)" stroke-width="2"/>
+        </svg>
+        <h3><span class="t-ko">찬양사역</span><span class="t-en">Worship Ministry</span></h3>
+        <div class="role"><span class="t-ko">광야밴드 인도자</span><span class="t-en">Leader, Gwangya Band</span></div>
+        <p><span class="t-ko">개척교회 찬양팀에서 시작해 지금까지 이어진 자리입니다. 광야밴드를 인도하며, 부르심이 있는 전국 각처를 찾아가 찬양으로 위로하는 일을 합니다.</span><span class="t-en">It began with the worship team of a church plant and has continued ever since. I lead the Gwangya Band and travel wherever the calling leads, bringing comfort through worship.</span></p>
+        <ul>
+          <li><span class="t-ko">교회 예배 및 특별 집회 찬양 인도</span><span class="t-en">Worship leading for services and special gatherings</span></li>
+          <li><span class="t-ko">기독경영인 모임, 직장인 예배 찬양</span><span class="t-en">Worship for business gatherings and workplace services</span></li>
+          <li><span class="t-ko">위로가 필요한 현장을 찾아가는 방문 사역</span><span class="t-en">Visits to places where comfort is needed</span></li>
+        </ul>
+        <img class="emblem-wm" src="assets/emblem.png" alt="" aria-hidden="true">
+        </div>
+      </article>
+
+      <article class="card wide">
+        <div class="media"><img src="assets/photos/speaking.jpg" alt="말씀과 나눔의 자리" loading="lazy" style="object-position:center 22%"></div>
+        <div class="inner">
+        <svg class="ic" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+          <defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2F62C4"/><stop offset=".6" stop-color="#6E4E9E"/><stop offset="1" stop-color="#E9A94A"/></linearGradient></defs>
+          <path d="M22 13c-3-2.4-7-3.4-11-3v18c4-.4 8 .6 11 3 3-2.4 7-3.4 11-3V10c-4-.4-8 .6-11 3Z" stroke="url(#g2)" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M22 13v18" stroke="url(#g2)" stroke-width="2"/>
+        </svg>
+        <h3><span class="t-ko">말씀사역</span><span class="t-en">Preaching and Teaching</span></h3>
+        <div class="role"><span class="t-ko"><span class="nowrap">양육 ·</span> <span class="nowrap">제자훈련 ·</span> <span class="nowrap">강단</span></span><span class="t-en">Discipleship &middot; Teaching &middot; Pulpit</span></div>
+        <p><span class="t-ko">개척교회 수요 강단을 섬겼고, 성경 양육과 제자훈련을 인도했습니다. 목회학 석사를 통해 신학적 기초를 다지며, 회중 참여예배에 관한 연구를 신학 학회에 게재하기도 했습니다.</span><span class="t-en">I served the Wednesday pulpit of a church plant and led Bible study and discipleship. The Master of Divinity gave me a theological foundation, and my study on congregational participatory worship was published in a theological journal.</span></p>
+        <ul>
+          <li><span class="t-ko">소그룹 성경공부 및 제자훈련 인도</span><span class="t-en">Small group Bible study and discipleship</span></li>
+          <li><span class="t-ko">직장인 예배, 기독경영인 모임 말씀</span><span class="t-en">Messages for workplace services and business gatherings</span></li>
+          <li><span class="t-ko">수요 예배 및 특별 집회 강단</span><span class="t-en">Wednesday services and special meetings</span></li>
+        </ul>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="media"><img src="assets/photos/cbmc-team.jpg" alt="기독경영인들과 함께" loading="lazy" style="object-position:center 62%"></div>
+        <div class="inner">
+        <svg class="ic" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+          <defs><linearGradient id="g3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6E4E9E"/><stop offset="1" stop-color="#EE9AA6"/></linearGradient></defs>
+          <circle cx="22" cy="22" r="13" stroke="url(#g3)" stroke-width="2"/>
+          <path d="m27.5 16.5-3 8-8 3 3-8 8-3Z" stroke="url(#g3)" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+        <h3><span class="t-ko">기독경영인 코칭사역</span><span class="t-en">Coaching Christian Business Leaders</span></h3>
+        <div class="role"><span class="t-ko">세 렌즈 코칭</span><span class="t-en">Three-lens coaching</span></div>
+        <p><span class="t-ko">일터의 자리에 있는 분들이 맡겨진 일을 성경적으로 성취하도록 조력합니다. 기독경영인 모임 지회 섬김이로 현장에서 만나고 있으며, 아둘람 스콜레 건립위원회 섬김이로도 참여하고 있습니다.</span><span class="t-en">I help those who stand in places of work to fulfil biblically what has been entrusted to them. I meet them in the field as a chapter servant leader, and I serve on the founding committee of Adullam Schole.</span></p>
+        <ul>
+          <li><span class="t-ko">소명과 직업, 일의 신학</span><span class="t-en">Calling, vocation, and the theology of work</span></li>
+          <li><span class="t-ko">의사결정의 기준과 분별</span><span class="t-en">Standards for decision and discernment</span></li>
+          <li><span class="t-ko">관계, 설득, 사람을 얻는 일</span><span class="t-en">Relationship, persuasion, and winning people</span></li>
+          <li><span class="t-ko">위기의 경영과 내려놓음</span><span class="t-en">Managing through crisis, and letting go</span></li>
+        </ul>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="media"><img src="assets/photos/portrait-full.jpg" alt="기업 현장에서" loading="lazy" style="object-position:center 18%"></div>
+        <div class="inner">
+        <svg class="ic" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+          <defs><linearGradient id="g4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2F62C4"/><stop offset="1" stop-color="#6E4E9E"/></linearGradient></defs>
+          <path d="M11 31h22" stroke="url(#g4)" stroke-width="2" stroke-linecap="round"/>
+          <path d="M15 31V21m7 10V13m7 18v-6" stroke="url(#g4)" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <h3><span class="t-ko">기업컨설팅사역</span><span class="t-en">Consulting as Service</span></h3>
+        <div class="role"><span class="t-ko">28년의 현장</span><span class="t-en">28 years in the field</span></div>
+        <p><span class="t-ko">컨설팅을 직업이 아니라 맡겨진 도구로 이해합니다. 기업의 대표가 밤에 잠들지 못하는 문제 앞에 함께 앉는 일이 곧 섬김이라고 믿습니다.</span><span class="t-en">I understand consulting not as a profession but as a tool entrusted to me. To sit beside an owner facing the problem that keeps him awake at night is itself service.</span></p>
+        <p><span class="t-ko">실무 문의는 <a href="https://drbriany.com" target="_blank" rel="noopener">drbriany.com</a>에서 다룹니다.</span><span class="t-en">Practical enquiries are handled at <a href="https://drbriany.com" target="_blank" rel="noopener">drbriany.com</a>.</span></p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="media"><img src="assets/photos/desk-card.jpg" alt="기록하고 정리하는 자리" loading="lazy"></div>
+        <div class="inner">
+        <svg class="ic" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+          <defs><linearGradient id="g5" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EE9AA6"/><stop offset="1" stop-color="#E9A94A"/></linearGradient></defs>
+          <path d="M13 31h18M16 27l12-13 4 3-12 13-5 1 1-4Z" stroke="url(#g5)" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+        <h3><span class="t-ko">문서사역</span><span class="t-en">Writing Ministry</span></h3>
+        <div class="role"><span class="t-ko"><span class="nowrap">저술 ·</span> <span class="nowrap">연구</span></span><span class="t-en">Writing &middot; Research</span></div>
+        <p><span class="t-ko">받은 것을 글로 남겨 나누는 일입니다. 설득과 소통을 다룬 저서 세 권을 썼고, 경영과 신학 양쪽에서 연구를 이어가고 있습니다.</span><span class="t-en">It is the work of leaving in writing what I have received. I have written three books on persuasion and communication, and I continue research in both business and theology.</span></p>
+        <ul>
+          <li><span class="t-ko">설득과 소통 분야 저서 3권</span><span class="t-en">Three books on persuasion and communication</span></li>
+          <li><span class="t-ko">경영학 및 신학 학술 논문</span><span class="t-en">Academic papers in business and in theology</span></li>
+          <li><span class="t-ko">기독경영인을 위한 저술 준비</span><span class="t-en">Writing in preparation for Christian business leaders</span></li>
+        </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="scene">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="eyebrow">SCENE</span>
+      <h2><span class="t-ko">사역의 현장</span><span class="t-en">Where the Work Happens</span></h2>
+      <p><span class="t-ko">부르심이 있는 자리마다 찾아가 함께 찬양하고, 함께 울고, 함께 기도했습니다.</span><span class="t-en">Wherever the calling led, we sang together, wept together, and prayed together.</span></p>
+    </div>
+    <div class="g-cols">
+      <figure><img src="assets/photos/stage-convention.jpg" alt="기독경영인 대회 찬양 인도" loading="lazy"><figcaption><span class="t-ko">기독경영인 대회 찬양 인도</span><span class="t-en">Leading worship at a national convention</span></figcaption></figure>
+      <figure><img src="assets/photos/studio-vocal.jpg" alt="녹음실에서 보컬 녹음" loading="lazy"><figcaption><span class="t-ko">녹음실에서</span><span class="t-en">In the recording studio</span></figcaption></figure>
+      <figure><img src="assets/photos/hands-1.jpg" alt="손을 든 회중" loading="lazy"><figcaption><span class="t-ko">손을 들고 함께 드리는 예배</span><span class="t-en">Hands raised together in worship</span></figcaption></figure>
+      <figure><img src="assets/photos/band-trio.jpg" alt="광야밴드 찬양" loading="lazy"><figcaption><span class="t-ko">광야밴드</span><span class="t-en">Gwangya Band</span></figcaption></figure>
+      <figure><img src="assets/photos/sing-white.jpg" alt="기타를 치며 찬양" loading="lazy"><figcaption><span class="t-ko">찬양의 자리</span><span class="t-en">A place of worship</span></figcaption></figure>
+      <figure><img src="assets/photos/stage-wide.jpg" alt="대회 무대 전경" loading="lazy"><figcaption><span class="t-ko">무대 뒤에서 바라본 회중</span><span class="t-en">The congregation, seen from the stage</span></figcaption></figure>
+      <figure><img src="assets/photos/audience-band.jpg" alt="찬양하는 회중" loading="lazy"><figcaption><span class="t-ko">모임의 첫 순서, 찬양</span><span class="t-en">Worship, the first order of every gathering</span></figcaption></figure>
+      <figure><img src="assets/photos/studio-guitar.jpg" alt="스튜디오 기타 연주" loading="lazy"><figcaption><span class="t-ko">준비하는 시간</span><span class="t-en">Time to prepare</span></figcaption></figure>
+      <figure><img src="assets/photos/band-quartet.jpg" alt="기독경영인 모임 찬양" loading="lazy"><figcaption><span class="t-ko">지회 모임 찬양</span><span class="t-en">Worship at a chapter meeting</span></figcaption></figure>
+      <figure><img src="assets/photos/sing-yellow.jpg" alt="함께 찬양하는 모습" loading="lazy"><figcaption><span class="t-ko">함께 부르는 노래</span><span class="t-en">Singing together</span></figcaption></figure>
+      <figure><img src="assets/photos/studio-gray.jpg" alt="연습실에서" loading="lazy"><figcaption><span class="t-ko">연습실에서</span><span class="t-en">In the practice room</span></figcaption></figure>
+      <figure><img src="assets/photos/band-hall.jpg" alt="집회 찬양" loading="lazy"><figcaption><span class="t-ko">집회의 자리</span><span class="t-en">At the gathering</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="fields" id="field">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="eyebrow">INTEREST</span>
+      <h2><span class="t-ko">관심분야</span><span class="t-en">Areas of Focus</span></h2>
+      <p><span class="t-ko">지금 마음을 쏟고 있는 자리들입니다.</span><span class="t-en">The places my heart is set on now.</span></p>
+    </div>
+    <div class="f-grid">
+      <div>
+        <h3><span class="t-ko">기독경영인 코칭</span><span class="t-en">Coaching Christian Business Leaders</span></h3>
+        <p><span class="t-ko">일터의 자리에 있는 분들을 성경적으로 조력하는 일. 세 렌즈를 통해 지혜와 기법과 통찰을 함께 나눕니다.</span><span class="t-en">Helping those in the workplace in a biblical way, sharing wisdom, method, and insight through the three lenses.</span></p>
+      </div>
+      <div>
+        <h3><span class="t-ko">저술과 연구</span><span class="t-en">Writing and Research</span></h3>
+        <p><span class="t-ko">더 깊은 묵상과 연구를 통해 다양한 저술을 산출하는 일. 신학 학회 논문 게재도 같은 맥락입니다.</span><span class="t-en">Producing writings out of deeper meditation and study. Publishing in theological journals belongs to the same line.</span></p>
+      </div>
+      <div>
+        <h3><span class="t-ko">찬양과 예배</span><span class="t-en">Worship</span></h3>
+        <p><span class="t-ko">회중이 참여하는 예배의 회복. 현장의 찬양 인도와 그 신학적 정당성 연구를 함께 이어갑니다.</span><span class="t-en">The recovery of congregational participation in worship, carried on both in leading and in theological study.</span></p>
+      </div>
+      <div>
+        <h3><span class="t-ko">문학과 예술</span><span class="t-en">Literature and Art</span></h3>
+        <p><span class="t-ko">받은 은사를 따라 문학과 예술의 자리에서도 드려지기를 원하는 소원이 있습니다.</span><span class="t-en">A desire to be offered also in the places of literature and art, according to the gifts received.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="vision" id="vision">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="eyebrow">VISION</span>
+      <h2><span class="t-ko">드려지는 세 가지</span><span class="t-en">Three Things I Offer</span></h2>
+      <p><span class="t-ko">마음속에 정리된 비전입니다.</span><span class="t-en">The vision settled in my heart.</span></p>
+    </div>
+    <ol class="vlist">
+      <li><i>I</i><span class="t-ko">여러 일터의 자리에 있는 분들을 섬기는 일입니다. 특히 경영학, 인문학, 신학 세 가지 렌즈를 통해, 주신 일들을 성경적으로 성취하는 데 조력하는 것입니다.</span><span class="t-en">To serve those who stand in places of work. Especially, through the three lenses of business, the humanities, and theology, to help them fulfil biblically the work they have been given.</span></li>
+      <li><i>II</i><span class="t-ko">그러기 위해 더 깊은 묵상과 연구들을 통해 다양한 저술들을 산출하고자 합니다.</span><span class="t-en">And to that end, to produce writings out of deeper meditation and study.</span></li>
+      <li><i>III</i><span class="t-ko">여러 은사와 부르심을 좇아 더 힘있게 드려지며 쓰임받고자 합니다.</span><span class="t-en">To be offered more fully and to be used, following the gifts and the calling given to me.</span></li>
+    </ol>
+    <p class="close"><span class="t-ko">찬양으로, 말씀으로, 저술로, 교육으로. 인도하심에 순종하며 산 제사로 드려지기를 원합니다.</span><span class="t-en">In worship, in the Word, in writing, in teaching. Walking in obedience to His leading, I long to be offered as a living sacrifice.</span></p>
+  </div>
+</section>
+
+<section id="record">
+  <div class="wrap">
+    <div class="s-head">
+      <span class="eyebrow">RECORD</span>
+      <h2><span class="t-ko">이력과 저술</span><span class="t-en">Background and Writings</span></h2>
+      <p><span class="t-ko">걸어온 자리와 남긴 글입니다.</span><span class="t-en">The places I have been and the words I have left.</span></p>
+    </div>
+
+    <div class="rec-grid">
+      <div>
+        <div class="blk">
+          <h3><span class="t-ko">학력</span><span class="t-en">Education</span></h3>
+          <div class="line"><b><span class="t-ko">Ph.D.(경영학박사)</span><span class="t-en">Ph.D. in Business Administration</span></b><span><span class="t-ko"><span class="nowrap">서울과학종합대학원대학교 ·</span> <span class="nowrap">경영전략</span></span><span class="t-en">Seoul School of Integrated Sciences and Technologies &middot; Business Strategy</span></span></div>
+          <div class="line"><b><span class="t-ko">MBA</span><span class="t-en">MBA</span></b><span><span class="t-ko"><span class="nowrap">Helsinki School of Economics ·</span> <span class="nowrap">International Management</span></span><span class="t-en">Helsinki School of Economics &middot; International Management</span></span></div>
+          <div class="line"><b><span class="t-ko">목회학석사</span><span class="t-en">Master of Divinity</span></b><span><span class="t-ko">아신대학교</span><span class="t-en">Asia United Theological University</span></span></div>
+        </div>
+
+        <div class="blk">
+          <h3><span class="t-ko">경력</span><span class="t-en">Career</span></h3>
+          <div class="line"><b><span class="t-ko">연구교수</span><span class="t-en">Research Professor</span></b><span><span class="t-ko">IPS 산업정책연구원</span><span class="t-en">IPS, Institute for Industrial Policy Studies</span></span></div>
+          <div class="line"><b><span class="t-ko">컨설턴트</span><span class="t-en">Consultant</span></b><span><span class="t-ko">LG CNS</span><span class="t-en">LG CNS</span></span></div>
+          <div class="line"><b><span class="t-ko">경영컨설팅 및 기업 자문 28년</span><span class="t-en">28 years in consulting and corporate advisory</span></b><span><span class="t-ko"><span class="nowrap">영업 ·</span> <span class="nowrap">세무 ·</span> <span class="nowrap">인수합병 ·</span> <span class="nowrap">벤처 자문</span></span><span class="t-en">Sales &middot; Tax &middot; M&amp;A &middot; Venture advisory</span></span></div>
+        </div>
+
+        <div class="blk">
+          <h3><span class="t-ko">신앙 경력</span><span class="t-en">Church Service</span></h3>
+          <div class="line"><b><span class="t-ko">개척교회</span><span class="t-en">Church plant</span></b><span><span class="t-ko"><span class="nowrap">수요 강단 ·</span> <span class="nowrap">성경 양육 및 제자훈련 ·</span> <span class="nowrap">찬양</span></span><span class="t-en">Wednesday pulpit &middot; Bible study and discipleship &middot; Worship</span></span></div>
+          <div class="line"><b><span class="t-ko">지구촌교회</span><span class="t-en">Jiguchon Church</span></b><span><span class="t-ko"><span class="nowrap">셀리더 ·</span> <span class="nowrap">찬양</span></span><span class="t-en">Cell leader &middot; Worship</span></span></div>
+          <div class="line"><b><span class="t-ko">서부경향교회</span><span class="t-en">Seobu Kyunghyang Church</span></b><span><span class="t-ko"><span class="nowrap">찬양 ·</span> <span class="nowrap">교육</span></span><span class="t-en">Worship &middot; Education</span></span></div>
+        </div>
+
+        <div class="blk">
+          <h3><span class="t-ko">찬양밴드</span><span class="t-en">Worship Band</span></h3>
+          <div class="line"><b><span class="t-ko">광야밴드</span><span class="t-en">Gwangya Band</span></b><span><span class="t-ko">인도자</span><span class="t-en">Leader</span></span></div>
+        </div>
+
+        <div class="blk">
+          <h3><span class="t-ko">기독경영인 모임</span><span class="t-en">Christian Business Leaders</span></h3>
+          <div class="line"><b><span class="t-ko">지회 섬김이</span><span class="t-en">Chapter servant leader</span></b><span><span class="t-ko">지역 경영인 섬김</span><span class="t-en">Serving business leaders in the region</span></span></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="blk">
+          <h3><span class="t-ko">저서</span><span class="t-en">Books</span></h3>
+          <ul class="books">
+            <li><span class="n"><span class="t-ko">심금술</span><span class="t-en">Simgeumsul: The Art of Touching Hearts</span></span><span class="p">NPBR</span></li>
+            <li><span class="n"><span class="t-ko">설득술 핵심기법</span><span class="t-en">Persuasion: Core Techniques</span></span><span class="p">NPBR</span></li>
+            <li><span class="n"><span class="t-ko">설득술 고급기법</span><span class="t-en">Persuasion: Advanced Techniques</span></span><span class="p">NPBR</span></li>
+          </ul>
+        </div>
+
+        <div class="blk">
+          <h3><span class="t-ko">학술 논문</span><span class="t-en">Academic Papers</span></h3>
+          <ul class="works">
+            <li><strong><span class="t-ko">한국교회 회중 참여예배의 성경적, 신학적, 역사적 정당성 연구</span><span class="t-en">A Study on the Biblical, Theological, and Historical Legitimacy of Congregational Participatory Worship in the Korean Church</span></strong><em><span class="t-ko">신학과 사회</span><span class="t-en">Theology and Society</span></em></li>
+            <li><strong><span class="t-ko">혁신기반 신제품개발을 통한 글로벌 시장 개척</span><span class="t-en">Opening Global Markets through Innovation-Based New Product Development</span></strong><em><span class="t-ko">메커니즘학회</span><span class="t-en">Mechanism Society</span></em></li>
+            <li><strong><span class="t-ko">시장 지향 K-Food 신제품 개발 전략</span><span class="t-en">Market-Oriented New Product Development Strategy for K-Food</span></strong><em><span class="t-ko">한국경영학회</span><span class="t-en">Korean Academy of Management</span></em></li>
+            <li><strong><span class="t-ko">시스템 다이내믹스 기반 스타트업 신제품개선</span><span class="t-en">System Dynamics-Based New Product Improvement for Startups</span></strong><em><span class="t-ko">한국시스템다이내믹스연구</span><span class="t-en">Korean System Dynamics Review</span></em></li>
+            <li><strong>Generative AI: A Chronological Review</strong><em>APJCRI</em></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="c-panel">
+      <span class="eyebrow">CONTACT</span>
+      <h2><span class="t-ko">함께할 자리가 있다면</span><span class="t-en">If There Is a Place to Serve</span></h2>
+      <p class="intro"><span class="t-ko">찬양, 말씀, 코칭으로 섬길 자리가 있다면 언제든 연락 주십시오.</span><span class="t-en">If there is a place to serve in worship, in the Word, or in coaching, please reach out anytime.</span></p>
+      <div class="c-grid">
+        <a href="tel:16445086"><b>PHONE</b><strong>1644-5086</strong></a>
+        <a href="mailto:briany0527@naver.com"><b>EMAIL</b><strong>briany0527@naver.com</strong></a>
+        <a href="https://www.youtube.com/@%EB%B8%8C%EB%A6%AC%EC%9D%98%EC%83%98" target="_blank" rel="noopener"><b>YOUTUBE</b><strong>@브리의샘</strong></a>
+      </div>
+      <p class="c-note"><span class="t-ko">초청을 문의하실 때 모임의 성격과 인원, 희망하시는 날짜를 함께 알려 주시면 기도하며 답을 드리겠습니다.</span><span class="t-en">When you write, please include the nature and size of the gathering and the dates you have in mind, and I will pray and reply.</span></p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="assets/emblem-sm.png" alt="">
+    <div>
+      <div class="fnm"><span class="t-ko">브리의샘</span><span class="t-en">BRI'S SPRING</span></div>
+      <div><span class="t-ko">정병현 · Ph.D.(경영학박사)</span><span class="t-en">Brian Chong &middot; Ph.D. in Business Administration</span></div>
+    </div>
+    <div class="sp">
+      <a href="https://drbriany.com" target="_blank" rel="noopener">drbriany.com</a>
+      <a href="mailto:briany0527@naver.com">briany0527@naver.com</a>
+      <a href="tel:16445086">1644-5086</a>
+    </div>
+  </div>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="사진 크게 보기">
+  <button type="button" id="lbClose" aria-label="닫기">&times;</button>
+  <img src="" alt="">
+</div>
+
+<script>
+(function(){
+  var t=document.getElementById('top');
+  var f=function(){t.classList.toggle('solid',window.scrollY>40)};
+  f();window.addEventListener('scroll',f,{passive:true});
+
+  // 언어 전환
+  var docEl=document.documentElement, btns=[].slice.call(document.querySelectorAll('.langtog button'));
+  var meta={ko:{t:"브리의샘 · BRI'S SPRING",d:"경영학, 인문학, 신학 세 렌즈로 일터와 교회를 섬깁니다."},
+            en:{t:"BRI'S SPRING · Brian Chong",d:"Serving the workplace and the church through business, the humanities, and theology."}};
+  function setLang(l){
+    docEl.lang=l;
+    document.title=meta[l].t;
+    var m=document.querySelector('meta[name="description"]'); if(m)m.content=meta[l].d;
+    btns.forEach(function(b){b.setAttribute('aria-pressed', b.getAttribute('data-lang')===l ? 'true':'false')});
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){setLang(b.getAttribute('data-lang'))})});
+  if((navigator.language||'').slice(0,2)!=='ko') setLang('en');
+
+  var lb=document.getElementById('lb'),lbImg=lb.querySelector('img'),last=null;
+  document.querySelectorAll('.g-cols figure').forEach(function(fig){
+    var im=fig.querySelector('img');
+    fig.setAttribute('tabindex','0');
+    fig.setAttribute('role','button');
+    var open=function(){last=fig;lbImg.src=im.src;lbImg.alt=im.alt;lb.classList.add('on');
+      document.body.style.overflow='hidden';document.getElementById('lbClose').focus()};
+    fig.addEventListener('click',open);
+    fig.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}});
+  });
+  var close=function(){lb.classList.remove('on');lbImg.src='';document.body.style.overflow='';if(last)last.focus()};
+  lb.addEventListener('click',function(e){if(e.target!==lbImg)close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&lb.classList.contains('on'))close()});
+})();
+</script>
+</body>
+</html>
